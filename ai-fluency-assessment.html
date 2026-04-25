@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fluency Assessment | The AI Fluency Company</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #0A1933;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tagline {
+            color: #00B2B2;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00B2B2, #0A1933);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Form Sections */
+        .form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: #0A1933;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00B2B2, #0A1933);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 20px;
+            margin-left: 50px;
+        }
+
+        /* Questions */
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #00B2B2;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #0A1933;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #00B2B2;
+            background: #f0fafa;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: #00B2B2;
+        }
+
+        .option.selected {
+            border-color: #00B2B2;
+            background: #e6f7f7;
+        }
+
+        .question.invalid {
+            border-left-color: #c43d3d;
+            background: #fff5f5;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* Email Section */
+        .email-section {
+            background: linear-gradient(135deg, #0A1933, #1a3a5c);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .email-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .email-section p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .email-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .email-input:focus {
+            outline: 2px solid #00B2B2;
+        }
+
+        .field-label {
+            display: block;
+            max-width: 400px;
+            margin: 0 auto 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .field-error {
+            min-height: 22px;
+            margin: 4px auto 14px;
+            max-width: 400px;
+            color: #ffd6d6;
+            font-size: 0.92em;
+            text-align: left;
+        }
+
+        .email-input.invalid {
+            outline: 3px solid #ff6b6b;
+        }
+
+        .consent-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: center;
+            max-width: 520px;
+            margin: 15px auto 0;
+            font-size: 0.92em;
+            opacity: 0.9;
+            text-align: left;
+        }
+
+        .consent-row input {
+            margin-top: 4px;
+            accent-color: #00B2B2;
+        }
+
+        .consent-row.invalid {
+            color: #ffd6d6;
+            opacity: 1;
+        }
+
+        .consent-row.invalid span {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00B2B2, #008f8f);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,178,178,0.3);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn[aria-busy="true"] {
+            cursor: wait;
+            opacity: 0.85;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00B2B2;
+            color: #00B2B2;
+            margin-right: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #00B2B2;
+            color: white;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(#00B2B2 var(--score-deg), #e0e0e0 var(--score-deg));
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            width: 160px;
+            height: 160px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 3em;
+            font-weight: bold;
+            color: #0A1933;
+        }
+
+        .score-label {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 10px 30px;
+            background: linear-gradient(135deg, #00B2B2, #0A1933);
+            color: white;
+            border-radius: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .dimension-scores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .dimension-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #00B2B2;
+        }
+
+        .dimension-name {
+            font-weight: 600;
+            color: #0A1933;
+            margin-bottom: 5px;
+        }
+
+        .dimension-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dimension-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00B2B2, #0A1933);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .dimension-score {
+            text-align: right;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .recommendation {
+            background: linear-gradient(135deg, #e6f7f7, #f0fafa);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .recommendation h3 {
+            color: #0A1933;
+            margin-bottom: 10px;
+        }
+
+        .recommendation p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #0A1933, #1a3a5c);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .cta-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .cta-box a {
+            color: #00B2B2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Data Storage Info */
+        .data-info {
+            background: #f0fafa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .submission-status {
+            display: block;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .submission-status.pending {
+            color: #0A1933;
+        }
+
+        .submission-status.success {
+            color: #087f5b;
+        }
+
+        .submission-status.warning {
+            color: #9a5b00;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #00B2B2;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .logo {
+                max-width: 200px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="ChatGPT Image Apr 24, 2026, 10_02_16 AM.png" alt="The AI Fluency Company" class="logo">
+            <h1>AI Fluency Assessment</h1>
+            <p>Find out if your organisation is AI fluent in just 5 minutes. Get instant insights and personalised recommendations.</p>
+            <div class="tagline">EVALUATE. ELEVATE. EMPOWER.</div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container" id="progressContainer" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">Question <span id="currentQuestion">1</span> of 10</div>
+        </div>
+
+        <!-- Email Capture Section -->
+        <div class="email-section" id="emailSection">
+            <h2>Get Your Free AI Fluency Score</h2>
+            <p>Enter your email to receive your detailed assessment results and personalised recommendations.</p>
+            <label class="field-label" for="emailInput">Email address</label>
+            <input type="email" class="email-input" id="emailInput" placeholder="your@email.com" autocomplete="email" required>
+            <div class="field-error" id="emailError" aria-live="polite"></div>
+            <label class="consent-row" for="consentCheckbox">
+                <input type="checkbox" id="consentCheckbox" aria-describedby="consentError" required>
+                <span>I agree to receive my assessment results and follow-up communications</span>
+            </label>
+            <div class="field-error" id="consentError" aria-live="polite"></div>
+            <button class="btn" id="startButton" type="button" onclick="startAssessment()">Start Assessment</button>
+            <div class="data-info">
+                <strong>How we use your data:</strong> Your email and assessment results are stored securely and used only to send you your personalised report and relevant follow-up information. We never share your data with third parties.
+            </div>
+        </div>
+
+        <!-- Question Sections -->
+        <!-- Dimension 1: AI Awareness -->
+        <div class="form-section" id="section1">
+            <div class="section-title">
+                <div class="section-icon">1</div>
+                <span>AI Awareness</span>
+            </div>
+            <div class="section-subtitle">Understanding of what AI can and cannot do</div>
+
+            <div class="question">
+                <div class="question-text">1. Which of the following best describes your organisation's understanding of AI capabilities?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q1', 0)">
+                        <input type="radio" name="q1" value="0" id="q1a">
+                        <label for="q1a">We don't really understand what AI can do</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1', 5)">
+                        <input type="radio" name="q1" value="5" id="q1b">
+                        <label for="q1b">We have a basic understanding but haven't explored deeply</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1', 10)">
+                        <input type="radio" name="q1" value="10" id="q1c">
+                        <label for="q1c">We understand AI capabilities and have identified potential use cases</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1', 15)">
+                        <input type="radio" name="q1" value="15" id="q1d">
+                        <label for="q1d">We have a clear understanding and regularly evaluate new AI developments</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1', 20)">
+                        <input type="radio" name="q1" value="20" id="q1e">
+                        <label for="q1e">We are considered thought leaders in AI within our industry</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. How would you rate your leadership team's AI literacy?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q2', 0)">
+                        <input type="radio" name="q2" value="0" id="q2a">
+                        <label for="q2a">Most leaders cannot name a single AI tool</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2', 5)">
+                        <input type="radio" name="q2" value="5" id="q2b">
+                        <label for="q2b">Leaders have heard of AI but don't understand applications</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2', 10)">
+                        <input type="radio" name="q2" value="10" id="q2c">
+                        <label for="q2c">Some leaders understand AI basics</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2', 15)">
+                        <input type="radio" name="q2" value="15" id="q2d">
+                        <label for="q2d">Most leaders understand AI and its business implications</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2', 20)">
+                        <input type="radio" name="q2" value="20" id="q2e">
+                        <label for="q2e">All leaders are actively engaged in AI strategy discussions</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <div></div>
+                <button class="btn" onclick="nextSection(2)">Next &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Dimension 2: Tool Usage -->
+        <div class="form-section" id="section2">
+            <div class="section-title">
+                <div class="section-icon">2</div>
+                <span>Tool Usage</span>
+            </div>
+            <div class="section-subtitle">Actual hands-on experience with AI tools</div>
+
+            <div class="question">
+                <div class="question-text">3. Which AI tools is your organisation currently using?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q3', 0)">
+                        <input type="radio" name="q3" value="0" id="q3a">
+                        <label for="q3a">None</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3', 5)">
+                        <input type="radio" name="q3" value="5" id="q3b">
+                        <label for="q3b">Basic tools like ChatGPT or Copilot for individual use</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3', 10)">
+                        <input type="radio" name="q3" value="10" id="q3c">
+                        <label for="q3c">AI tools integrated into specific workflows (e.g., marketing, sales)</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3', 15)">
+                        <input type="radio" name="q3" value="15" id="q3d">
+                        <label for="q3d">Multiple AI tools across departments with some integration</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3', 20)">
+                        <input type="radio" name="q3" value="20" id="q3e">
+                        <label for="q3e">Comprehensive AI toolkit with enterprise-wide integration</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. How embedded is AI in your daily operations?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q4', 0)">
+                        <input type="radio" name="q4" value="0" id="q4a">
+                        <label for="q4a">Not at all</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4', 5)">
+                        <input type="radio" name="q4" value="5" id="q4b">
+                        <label for="q4b">Occasional experimental use</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4', 10)">
+                        <input type="radio" name="q4" value="10" id="q4c">
+                        <label for="q4c">Regular use in specific functions</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4', 15)">
+                        <input type="radio" name="q4" value="15" id="q4d">
+                        <label for="q4d">Integrated across multiple business processes</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4', 20)">
+                        <input type="radio" name="q4" value="20" id="q4e">
+                        <label for="q4e">AI is fundamental to how we operate</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection(1)">&larr; Previous</button>
+                <button class="btn" onclick="nextSection(3)">Next &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Dimension 3: Strategy -->
+        <div class="form-section" id="section3">
+            <div class="section-title">
+                <div class="section-icon">3</div>
+                <span>Strategy</span>
+            </div>
+            <div class="section-subtitle">Documented AI strategy or roadmap</div>
+
+            <div class="question">
+                <div class="question-text">5. Does your organisation have a documented AI strategy?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q5', 0)">
+                        <input type="radio" name="q5" value="0" id="q5a">
+                        <label for="q5a">No strategy exists</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5', 5)">
+                        <input type="radio" name="q5" value="5" id="q5b">
+                        <label for="q5b">Informal discussions only</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5', 10)">
+                        <input type="radio" name="q5" value="10" id="q5c">
+                        <label for="q5c">Basic strategy document exists but not approved</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5', 15)">
+                        <input type="radio" name="q5" value="15" id="q5d">
+                        <label for="q5d">Approved strategy with some implementation</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5', 20)">
+                        <input type="radio" name="q5" value="20" id="q5e">
+                        <label for="q5e">Comprehensive strategy with clear roadmap and accountability</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">6. How aligned is your executive team on AI priorities?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q6', 0)">
+                        <input type="radio" name="q6" value="0" id="q6a">
+                        <label for="q6a">No alignment - conflicting views</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6', 5)">
+                        <input type="radio" name="q6" value="5" id="q6b">
+                        <label for="q6b">Some awareness but no shared priorities</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6', 10)">
+                        <input type="radio" name="q6" value="10" id="q6c">
+                        <label for="q6c">General agreement on importance but no specific plan</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6', 15)">
+                        <input type="radio" name="q6" value="15" id="q6d">
+                        <label for="q6d">Aligned on key priorities with allocated budget</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6', 20)">
+                        <input type="radio" name="q6" value="20" id="q6e">
+                        <label for="q6e">Fully aligned with dedicated AI leadership and resources</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection(2)">&larr; Previous</button>
+                <button class="btn" onclick="nextSection(4)">Next &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Dimension 4: Governance -->
+        <div class="form-section" id="section4">
+            <div class="section-title">
+                <div class="section-icon">4</div>
+                <span>Governance</span>
+            </div>
+            <div class="section-subtitle">AI policies and risk frameworks</div>
+
+            <div class="question">
+                <div class="question-text">7. Does your organisation have AI governance policies in place?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q7', 0)">
+                        <input type="radio" name="q7" value="0" id="q7a">
+                        <label for="q7a">No policies exist</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7', 5)">
+                        <input type="radio" name="q7" value="5" id="q7b">
+                        <label for="q7b">Ad-hoc guidelines for tool usage</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7', 10)">
+                        <input type="radio" name="q7" value="10" id="q7c">
+                        <label for="q7c">Basic usage policies documented</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7', 15)">
+                        <input type="radio" name="q7" value="15" id="q7d">
+                        <label for="q7d">Comprehensive governance framework including risk management</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7', 20)">
+                        <input type="radio" name="q7" value="20" id="q7e">
+                        <label for="q7e">Full governance aligned with international standards (e.g., ISO 42001)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">8. How does your organisation manage AI-related risks?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q8', 0)">
+                        <input type="radio" name="q8" value="0" id="q8a">
+                        <label for="q8a">We don't consider AI risks</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8', 5)">
+                        <input type="radio" name="q8" value="5" id="q8b">
+                        <label for="q8b">Informal risk discussions</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8', 10)">
+                        <input type="radio" name="q8" value="10" id="q8c">
+                        <label for="q8c">Basic risk identification</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8', 15)">
+                        <input type="radio" name="q8" value="15" id="q8d">
+                        <label for="q8d">Structured risk assessment process</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8', 20)">
+                        <input type="radio" name="q8" value="20" id="q8e">
+                        <label for="q8e">Comprehensive risk framework with regular audits</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection(3)">&larr; Previous</button>
+                <button class="btn" onclick="nextSection(5)">Next &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Dimension 5: Data Readiness -->
+        <div class="form-section" id="section5">
+            <div class="section-title">
+                <div class="section-icon">5</div>
+                <span>Data Readiness</span>
+            </div>
+            <div class="section-subtitle">Data quality and accessibility</div>
+
+            <div class="question">
+                <div class="question-text">9. How would you rate your organisation's data quality and accessibility?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q9', 0)">
+                        <input type="radio" name="q9" value="0" id="q9a">
+                        <label for="q9a">Poor data quality, siloed and inaccessible</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9', 5)">
+                        <input type="radio" name="q9" value="5" id="q9b">
+                        <label for="q9b">Some data available but inconsistent quality</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9', 10)">
+                        <input type="radio" name="q9" value="10" id="q9c">
+                        <label for="q9c">Decent data in core systems</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9', 15)">
+                        <input type="radio" name="q9" value="15" id="q9d">
+                        <label for="q9d">Good data quality with growing accessibility</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9', 20)">
+                        <input type="radio" name="q9" value="20" id="q9e">
+                        <label for="q9e">High-quality, well-governed data across the organisation</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">10. Does your organisation understand what data is needed for AI initiatives?</div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q10', 0)">
+                        <input type="radio" name="q10" value="0" id="q10a">
+                        <label for="q10a">No understanding</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10', 5)">
+                        <input type="radio" name="q10" value="5" id="q10b">
+                        <label for="q10b">Basic awareness</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10', 10)">
+                        <input type="radio" name="q10" value="10" id="q10c">
+                        <label for="q10c">Some understanding for specific use cases</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10', 15)">
+                        <input type="radio" name="q10" value="15" id="q10d">
+                        <label for="q10d">Clear understanding across multiple initiatives</label>
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10', 20)">
+                        <input type="radio" name="q10" value="20" id="q10e">
+                        <label for="q10e">Comprehensive data strategy aligned with AI roadmap</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection(4)">&larr; Previous</button>
+                <button class="btn" id="resultsButton" onclick="showResults()">Get My Results &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <h2>Your AI Fluency Assessment Results</h2>
+            
+            <div class="score-circle" id="scoreCircle">
+                <div class="score-text" id="scoreText">0</div>
+            </div>
+            
+            <div class="score-label">out of 200</div>
+            
+            <div class="category-badge" id="categoryBadge">AI Novice</div>
+            
+            <div class="dimension-scores" id="dimensionScores">
+                <!-- Filled by JavaScript -->
+            </div>
+            
+            <div class="recommendation" id="recommendation">
+                <!-- Filled by JavaScript -->
+            </div>
+            
+            <div class="cta-box">
+                <h3>Ready to Improve Your AI Fluency?</h3>
+                <p>Book a free 15-minute debrief with Zoe Francois to discuss your results and next steps.</p>
+                <a href="https://calendly.com/zoefrancois123/30min" class="btn" style="margin-top: 15px; display: inline-block;">Book Your Free Debrief</a>
+            </div>
+            
+            <div class="data-info" id="submissionInfo" style="margin-top: 20px;">
+                <strong>Submission status:</strong>
+                <span class="submission-status pending" id="submissionStatus">Preparing to save your results...</span>
+                <span id="resultEmail"></span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 The AI Fluency Company. All rights reserved.</p>
+            <p>AI Strategy & Governance | ISO 42001 Consulting</p>
+            <p style="margin-top: 10px;">
+                <a href="#">LinkedIn</a> | 
+                <a href="#">Website</a> | 
+                <a href="mailto:hello@aifluency.co">Email</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let currentSection = 0;
+        let scores = {
+            q1: 0, q2: 0, q3: 0, q4: 0, q5: 0,
+            q6: 0, q7: 0, q8: 0, q9: 0, q10: 0
+        };
+        let userEmail = '';
+
+        // Dimension mapping
+        const dimensions = {
+            'AI Awareness': ['q1', 'q2'],
+            'Tool Usage': ['q3', 'q4'],
+            'Strategy': ['q5', 'q6'],
+            'Governance': ['q7', 'q8'],
+            'Data Readiness': ['q9', 'q10']
+        };
+
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwW4DoTb4bosi14MEwJIxElvmpA5q7lRXdk9nNYg8JerX9Rzd56CgiOKLhkrOX9bvOT-Q/exec';
+        const RESULT_STORAGE_KEY = 'aiFluencyResults';
+        const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function setFieldError(input, errorElement, message) {
+            input.classList.toggle('invalid', Boolean(message));
+            input.setAttribute('aria-invalid', message ? 'true' : 'false');
+            errorElement.textContent = message;
+        }
+
+        function setSubmissionStatus(message, statusType = 'pending') {
+            const status = document.getElementById('submissionStatus');
+            status.textContent = message;
+            status.className = `submission-status ${statusType}`;
+        }
+
+        function validateEmailCapture() {
+            const emailInput = document.getElementById('emailInput');
+            const consentInput = document.getElementById('consentCheckbox');
+            const consentRow = document.querySelector('.consent-row');
+            const emailError = document.getElementById('emailError');
+            const consentError = document.getElementById('consentError');
+            const email = emailInput.value.trim();
+            let isValid = true;
+
+            setFieldError(emailInput, emailError, '');
+            consentError.textContent = '';
+            consentInput.setAttribute('aria-invalid', 'false');
+            consentRow.classList.remove('invalid');
+
+            if (!EMAIL_PATTERN.test(email)) {
+                setFieldError(emailInput, emailError, 'Please enter a valid email address.');
+                emailInput.focus();
+                isValid = false;
+            }
+
+            if (!consentInput.checked) {
+                consentError.textContent = 'Please agree so we can send your assessment results.';
+                consentInput.setAttribute('aria-invalid', 'true');
+                consentRow.classList.add('invalid');
+                if (isValid) {
+                    consentRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    consentInput.focus();
+                }
+                isValid = false;
+            }
+
+            return isValid ? email : '';
+        }
+
+        function validateCurrentSection(errorMessage) {
+            const currentSectionEl = document.getElementById('section' + currentSection);
+            const questions = currentSectionEl.querySelectorAll('.question');
+            let firstMissingQuestion = null;
+
+            questions.forEach(question => {
+                const hasAnswer = question.querySelectorAll('input[type="radio"]:checked').length > 0;
+                question.classList.toggle('invalid', !hasAnswer);
+
+                if (!hasAnswer && !firstMissingQuestion) {
+                    firstMissingQuestion = question;
+                }
+            });
+
+            if (firstMissingQuestion) {
+                firstMissingQuestion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const firstRadio = firstMissingQuestion.querySelector('input[type="radio"]');
+                if (firstRadio) {
+                    firstRadio.focus({ preventScroll: true });
+                }
+                alert(errorMessage);
+                return false;
+            }
+
+            return true;
+        }
+
+        // Start assessment
+        function startAssessment() {
+            const email = validateEmailCapture();
+
+            if (!email) {
+                return;
+            }
+            
+            userEmail = email;
+            document.getElementById('emailSection').style.display = 'none';
+            document.getElementById('progressContainer').style.display = 'block';
+            showSection(1);
+        }
+
+        // Select option
+        function selectOption(element, question, value) {
+            // Remove selected class from all options in this question
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Check the radio button
+            const radio = element.querySelector('input[type="radio"]');
+            radio.checked = true;
+            
+            // Store score
+            scores[question] = value;
+
+            const questionEl = element.closest('.question');
+            if (questionEl) {
+                questionEl.classList.remove('invalid');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const consentInput = document.getElementById('consentCheckbox');
+            const consentRow = document.querySelector('.consent-row');
+            const consentError = document.getElementById('consentError');
+
+            if (consentInput && consentRow && consentError) {
+                consentInput.addEventListener('change', function() {
+                    if (this.checked) {
+                        consentError.textContent = '';
+                        this.setAttribute('aria-invalid', 'false');
+                        consentRow.classList.remove('invalid');
+                    }
+                });
+            }
+        });
+
+        // Show section
+        function showSection(sectionNum) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show current section
+            document.getElementById('section' + sectionNum).classList.add('active');
+            currentSection = sectionNum;
+            
+            // Update progress
+            updateProgress(sectionNum);
+        }
+
+        // Next section
+        function nextSection(nextNum) {
+            if (!validateCurrentSection('Please answer all questions before proceeding.')) {
+                return;
+            }
+            
+            showSection(nextNum);
+            window.scrollTo(0, 0);
+        }
+
+        // Previous section
+        function prevSection(prevNum) {
+            showSection(prevNum);
+            window.scrollTo(0, 0);
+        }
+
+        // Update progress bar
+        function updateProgress(sectionNum) {
+            const progress = ((sectionNum - 1) / 5) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = ((sectionNum - 1) * 2) + 1;
+        }
+
+        // Show results
+        async function showResults() {
+            if (!validateCurrentSection('Please answer all questions before viewing results.')) {
+                return;
+            }
+
+            const resultsButton = document.getElementById('resultsButton');
+            resultsButton.disabled = true;
+            resultsButton.setAttribute('aria-busy', 'true');
+            resultsButton.textContent = 'Calculating...';
+
+            // Calculate total score (out of 200)
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+            
+            // Calculate dimension scores (each dimension is out of 40)
+            const dimensionScores = {};
+            for (let [dim, questions] of Object.entries(dimensions)) {
+                dimensionScores[dim] = questions.reduce((sum, q) => sum + scores[q], 0);
+            }
+            
+            // Determine category (score out of 200)
+            let category, recommendation, nextStep;
+            
+            if (totalScore <= 40) {
+                category = 'AI Novice';
+                recommendation = 'Your organisation is at the beginning of the AI journey. The good news? Every expert started here. Focus on building foundational understanding and getting hands-on with basic AI tools.';
+                nextStep = 'AI Fluency Bootcamp (3-hour workshop, R3,500/person)';
+            } else if (totalScore <= 80) {
+                category = 'AI Aware';
+                recommendation = 'You have some awareness of AI but limited practical application. Your team knows AI is important but hasn\'t fully integrated it into workflows yet.';
+                nextStep = 'AI Fluency Training + Tool Introduction';
+            } else if (totalScore <= 120) {
+                category = 'AI Emerging';
+                recommendation = 'You\'re actively experimenting with AI but lack a cohesive strategy. You have champions using AI, but it\'s not yet organisation-wide.';
+                nextStep = 'AI Strategy Workshop + Diagnostic (1-day, R8,500/person)';
+            } else if (totalScore <= 160) {
+                category = 'AI Advancing';
+                recommendation = 'Good progress! You have some governance and strategy in place. Now it\'s time to optimise and scale your AI initiatives.';
+                nextStep = 'AI Opportunity & Risk Diagnostic (R25,000-R75,000)';
+            } else {
+                category = 'AI Fluent';
+                recommendation = 'Excellent! Your organisation has strong AI capabilities and governance. You\'re ready for advanced strategies and potentially leading in your industry.';
+                nextStep = 'AI Certification + Fractional CAIO Services';
+            }
+            
+            // Hide form sections and progress
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('progressContainer').style.display = 'none';
+            
+            // Show results
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('active');
+            
+            // Animate score
+            animateScore(totalScore, 200);
+            
+            // Set category
+            document.getElementById('categoryBadge').textContent = category;
+            
+            // Show email
+            document.getElementById('resultEmail').textContent = ` Results will be sent to ${userEmail}.`;
+            
+            // Build dimension scores
+            const dimensionScoresHtml = Object.entries(dimensionScores).map(([dim, score]) => {
+                const percentage = (score / 40) * 100;
+                return `
+                    <div class="dimension-card">
+                        <div class="dimension-name">${dim}</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-fill" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="dimension-score">${score}/40</div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('dimensionScores').innerHTML = dimensionScoresHtml;
+            
+            // Set recommendation
+document.getElementById('recommendation').innerHTML = `
+  <h3>What Your Score Means</h3>
+  <p>${recommendation}</p>
+  <h3>Recommended Next Step</h3>
+  <p><strong>${nextStep}</strong></p>
+`;
+            
+            // Save results
+            setSubmissionStatus('Saving your results and sending email notifications...', 'pending');
+            await saveResults(userEmail, totalScore, category, dimensionScores, recommendation, nextStep);
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Animate score counter
+        function animateScore(targetScore, maxScore) {
+            const scoreText = document.getElementById('scoreText');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const duration = 2000;
+            const start = 0;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentScore = Math.round(start + (targetScore - start) * easeOutQuart);
+                
+                scoreText.textContent = currentScore;
+                scoreCircle.style.setProperty('--score-deg', (currentScore / maxScore * 360) + 'deg');
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Save results - sends to Google Sheets and keeps a local backup
+        async function saveResults(email, score, category, dimensions, recommendation, nextStep) {
+            const timestamp = new Date().toISOString();
+            const resultData = {
+                email: email,
+                score: score,
+                maxScore: 200,
+                category: category,
+                dimensions: dimensions,
+                timestamp: timestamp,
+                individualScores: { ...scores },
+                recommendation: recommendation,
+                nextStep: nextStep,
+                source: window.location.href
+            };
+            
+            console.log('Assessment Results:', resultData);
+
+            saveLocalBackup(resultData);
+
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+                setSubmissionStatus('Results are saved in this browser. Add your Google Apps Script URL to send them to Sheets.', 'warning');
+                return;
+            }
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(resultData),
+                    keepalive: true
+                });
+
+                setSubmissionStatus('Results submitted. A copy has been queued for email delivery; check spam if it does not arrive within a few minutes.', 'success');
+                console.log('Submitted to Google Sheets endpoint');
+            } catch (error) {
+                console.error('Error saving to Google Sheets:', error);
+                setSubmissionStatus('We saved a browser backup, but could not reach Google Sheets. Please try again later or check the Apps Script deployment URL.', 'warning');
+            }
+        }
+
+        function saveLocalBackup(resultData) {
+            const existingResults = JSON.parse(localStorage.getItem(RESULT_STORAGE_KEY) || '[]');
+            existingResults.push(resultData);
+            localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(existingResults));
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if logo image exists, if not use a placeholder
+            const logo = document.querySelector('.logo');
+            logo.onerror = function() {
+                this.src = 'AI Fluency Logo.png';
+            };
+        });
+    </script>
+</body>
+</html>
