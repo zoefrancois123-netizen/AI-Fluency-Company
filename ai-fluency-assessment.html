@@ -470,9 +470,19 @@
         }
 
         .cta-box a {
-            color: #00B2B2;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
+        }
+
+        .cta-box a.btn {
+            color: #ffffff;
+        }
+
+        .cta-box a.btn:hover,
+        .cta-box a.btn:focus {
+            color: #ffffff;
+            background: linear-gradient(135deg, #00c7c7, #007f7f);
         }
 
         /* Data Storage Info */
@@ -546,7 +556,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <img src="ChatGPT Image Apr 24, 2026, 10_02_16 AM.png" alt="The AI Fluency Company" class="logo">
+            <img src="assets/ai-fluency-logo-standard.png" alt="The AI Fluency Company" class="logo">
             <h1>AI Fluency Assessment</h1>
             <p>Find out if your organisation is AI fluent in just 5 minutes. Get instant insights and personalised recommendations.</p>
             <div class="tagline">EVALUATE. ELEVATE. EMPOWER.</div>
@@ -1311,10 +1321,10 @@ document.getElementById('recommendation').innerHTML = `
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if logo image exists, if not use a placeholder
+            // Check if logo image exists, if not use the full framework logo
             const logo = document.querySelector('.logo');
             logo.onerror = function() {
-                this.src = 'AI Fluency Logo.png';
+                this.src = 'assets/ai-fluency-logo-full.png';
             };
         });
     </script>

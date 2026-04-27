@@ -84,8 +84,15 @@ a {
 
 .nav-cta {
   padding: 10px 14px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink);
   border-radius: 8px;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.nav-links .nav-cta:hover {
+  color: var(--white);
+  background: #12305d;
 }
 
 .nav-toggle {
@@ -114,6 +121,89 @@ a {
   min-height: calc(100vh - 78px);
   margin: 0 auto;
   padding: 64px 0 74px;
+}
+
+.founder-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  align-items: center;
+  gap: 54px;
+  width: min(1180px, calc(100% - 40px));
+  min-height: calc(86vh - 78px);
+  margin: 0 auto;
+  padding: 74px 0;
+}
+
+.founder-hero h1 {
+  max-width: 840px;
+}
+
+.founder-hero-copy p:not(.eyebrow) {
+  max-width: 690px;
+  margin: 26px 0 0;
+  color: var(--ink-soft);
+  font-size: 1.18rem;
+}
+
+.founder-card {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff 0%, #f4fbfb 100%);
+  box-shadow: var(--shadow);
+}
+
+.founder-card img {
+  width: min(420px, 100%);
+  margin: 0 auto 18px;
+}
+
+.founder-photo {
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.founder-photo-placeholder {
+  display: grid;
+  width: min(320px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto 18px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f4fbfb 0%, #ffffff 48%, #edf4ff 100%);
+  color: var(--ink);
+  font-size: clamp(3.6rem, 9vw, 6rem);
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.founder-card span,
+.founder-card strong {
+  display: block;
+}
+
+.founder-card span {
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.founder-card strong {
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.founder-card p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
 }
 
 .eyebrow {
@@ -177,9 +267,14 @@ h1 {
 }
 
 .button.secondary {
-  color: var(--ink);
-  border: 1px solid var(--line);
+  color: var(--blue);
+  border: 1px solid var(--blue);
   background: var(--white);
+}
+
+.button.secondary:hover {
+  color: var(--white);
+  background: var(--blue);
 }
 
 .hero-panel {
@@ -319,6 +414,70 @@ h1 {
   font-size: 0.95rem;
 }
 
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px;
+}
+
+.story-grid p {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.founder-quote {
+  margin: 28px 0 0;
+  padding: 30px;
+  border-left: 5px solid var(--teal);
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.founder-quote p {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.3vw, 2rem);
+  line-height: 1.28;
+}
+
+.founder-quote cite {
+  display: block;
+  margin-top: 18px;
+  color: #dbe7ed;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.founder-principles {
+  width: 100%;
+  padding: 92px max(20px, calc((100vw - 1180px) / 2));
+  background: var(--mist);
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.principle-grid article {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.principle-grid h3 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+}
+
+.principle-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
 .about {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
@@ -364,6 +523,36 @@ h1 {
 .about-points span {
   margin-top: 6px;
   color: var(--ink-soft);
+}
+
+.founder-preview {
+  display: grid;
+  grid-template-columns: 0.62fr 1.38fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.founder-preview-photo img {
+  width: min(340px, 100%);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.founder-preview h2 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.03;
+}
+
+.founder-preview p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0 0 24px;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
 }
 
 .governance {
@@ -520,10 +709,14 @@ h1 {
   }
 
   .hero,
+  .founder-hero,
   .section-heading,
   .definition-grid,
   .work-grid,
+  .story-grid,
+  .principle-grid,
   .governance-grid,
+  .founder-preview,
   .about,
   .assessment {
     grid-template-columns: 1fr;
@@ -570,6 +763,7 @@ h1 {
   }
 
   .band,
+  .founder-principles,
   .governance,
   .assessment {
     padding-right: 14px;
