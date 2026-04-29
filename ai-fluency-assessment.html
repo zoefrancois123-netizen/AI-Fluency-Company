@@ -1174,24 +1174,24 @@
             
             if (totalScore <= 40) {
                 category = 'AI Novice';
-                recommendation = 'Your organisation is at the beginning of the AI journey. The good news? Every expert started here. Focus on building foundational understanding and getting hands-on with basic AI tools.';
-                nextStep = 'AI Fluency Bootcamp (3-hour workshop, R3,500/person)';
+                recommendation = 'Your organisation is at the beginning of the AI journey. The good news? Every expert started here. The priority now is building a shared foundation across your leadership team — a grounded understanding of what AI can do, where it belongs, and what responsible adoption actually looks like.';
+                nextStep = 'AI Fluency Training for the leadership team — a half-day session that gives executives a shared language and a clear-eyed view of AI in your business. From R25,000.';
             } else if (totalScore <= 80) {
                 category = 'AI Aware';
-                recommendation = 'You have some awareness of AI but limited practical application. Your team knows AI is important but hasn\'t fully integrated it into workflows yet.';
-                nextStep = 'AI Fluency Training + Tool Introduction';
+                recommendation = 'You have some awareness of AI but limited practical application. Your team knows AI is important but has not yet integrated it into workflows in any meaningful way. The next step is to build leadership fluency and identify the highest-value first use case.';
+                nextStep = 'AI Fluency Training plus a free 30-minute strategy conversation to scope your first practical use case. Training from R25,000.';
             } else if (totalScore <= 120) {
                 category = 'AI Emerging';
-                recommendation = 'You\'re actively experimenting with AI but lack a cohesive strategy. You have champions using AI, but it\'s not yet organisation-wide.';
-                nextStep = 'AI Strategy Workshop + Diagnostic (1-day, R8,500/person)';
+                recommendation = 'You are actively experimenting with AI but lack a cohesive strategy. You have champions using AI in pockets of the business, but it is not yet organisation-wide and the governance picture is unclear. This is the moment to step back, take stock, and put structure around what is happening.';
+                nextStep = 'AI Opportunity & Risk Diagnostic — a 5-day engagement producing a board-ready view of where AI belongs in your business, where you are exposed, and what the next 90 days should look like. From R35,000.';
             } else if (totalScore <= 160) {
                 category = 'AI Advancing';
-                recommendation = 'Good progress! You have some governance and strategy in place. Now it\'s time to optimise and scale your AI initiatives.';
-                nextStep = 'AI Opportunity & Risk Diagnostic (R25,000-R75,000)';
+                recommendation = 'Good progress. You have some governance and strategy in place and AI is starting to deliver real value. The work now is to prioritise where to scale, formalise governance against an internationally recognised framework, and build a defensible position for your board and stakeholders.';
+                nextStep = 'AI Strategy Workshop combined with an ISO/IEC 42001 readiness review — a focused 2-day workshop to prioritise the use case portfolio alongside a structured review of governance maturity. From R55,000.';
             } else {
                 category = 'AI Fluent';
-                recommendation = 'Excellent! Your organisation has strong AI capabilities and governance. You\'re ready for advanced strategies and potentially leading in your industry.';
-                nextStep = 'AI Certification + Fractional CAIO Services';
+                recommendation = 'Excellent. Your organisation has strong AI capabilities and a maturing governance posture. You are well placed to formalise that position through certification, and to lead by example in your sector.';
+                nextStep = 'ISO/IEC 42001 Readiness — a structured pathway to formal AI management system certification, delivered with an accredited specialist partner. Scoped per organisation. From R120,000.';
             }
             
             // Hide form sections and progress
@@ -1235,6 +1235,9 @@ document.getElementById('recommendation').innerHTML = `
   <p>${recommendation}</p>
   <h3>Recommended Next Step</h3>
   <p><strong>${nextStep}</strong></p>
+  <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #666; font-size: 0.95em;">
+    <strong style="color: #0A1933;">Not ready to engage yet?</strong> Book a 30-minute conversation with Zoë to walk through your result. No obligation, no pitch — just a useful debrief.
+  </p>
 `;
             
             // Save results
