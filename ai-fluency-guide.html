@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Executive's Guide to AI Fluency for Boards | The AI Fluency Company</title>
+<meta name="description" content="A practical executive guide to AI fluency for boards. Free download by Zoe Francois, Founder of The AI Fluency Company.">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0A1933;
+    --teal: #00B2B2;
+    --teal-dark: #008e8e;
+    --cream: #F7F4EE;
+    --slate: #475569;
+    --slate-light: #94A3B8;
+    --slate-lighter: #CBD5E1;
+    --ink: #0F172A;
+    --light-blue: #CADCFC;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  /* ---- Header / Navigation ---- */
+  .site-header {
+    background: var(--navy);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .site-header .brand {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .site-header nav a {
+    color: var(--light-blue);
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .site-header nav a:hover { color: var(--teal); }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 4rem 2rem 5rem;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero .eyebrow {
+    color: var(--teal);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 700;
+  }
+  .hero .subhead {
+    font-size: 1.15rem;
+    color: var(--light-blue);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  .hero .author {
+    color: var(--slate-light);
+    font-size: 0.9rem;
+  }
+  .hero .cover {
+    text-align: center;
+  }
+  .cover-card {
+    background: #fff;
+    border-radius: 6px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+    color: var(--ink);
+    text-align: left;
+    transform: rotate(-2deg);
+    max-width: 280px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1.414;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-card .top-eyebrow {
+    color: var(--teal);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .cover-card .cover-title {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+  .cover-card .cover-sub {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--slate);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .cover-card .cover-bar {
+    width: 60%;
+    height: 2px;
+    background: var(--teal);
+    margin: 1rem 0;
+  }
+  .cover-card .author-line {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 0.85rem;
+  }
+  .cover-card .author-meta {
+    color: var(--slate-light);
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ---- Main content ---- */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+  }
+
+  .description h2 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .description p {
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+  }
+  .description ul {
+    margin: 1rem 0 1.5rem 1.5rem;
+  }
+  .description li {
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+  .description .accent-line {
+    color: var(--slate);
+    font-style: italic;
+    border-left: 4px solid var(--teal);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  /* ---- Form panel ---- */
+  .form-panel {
+    background: var(--cream);
+    border-top: 6px solid var(--teal);
+    padding: 2.5rem 2rem;
+    border-radius: 0 0 6px 6px;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+  }
+  .form-panel .form-eyebrow {
+    color: var(--teal);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .form-panel h3 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .form-panel .pitch {
+    color: var(--slate);
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group { margin-bottom: 1rem; }
+  .form-group label {
+    display: block;
+    color: var(--navy);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--slate-lighter);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--ink);
+    background: #fff;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0,178,178,0.15);
+  }
+  .form-group .help {
+    font-size: 0.75rem;
+    color: var(--slate-light);
+    margin-top: 0.3rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--teal);
+    color: #fff;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover { background: var(--teal-dark); }
+  .submit-btn:disabled {
+    background: var(--slate-lighter);
+    cursor: not-allowed;
+  }
+
+  .privacy-note {
+    font-size: 0.78rem;
+    color: var(--slate-light);
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+
+  /* ---- Status messages ---- */
+  .status {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    display: none;
+  }
+  .status.show { display: block; }
+  .status.success {
+    background: #ecfdf5;
+    border-left: 4px solid #10b981;
+    color: #065f46;
+  }
+  .status.error {
+    background: #fef2f2;
+    border-left: 4px solid #ef4444;
+    color: #991b1b;
+  }
+
+  /* ---- Footer ---- */
+  .site-footer {
+    background: var(--navy);
+    color: var(--slate-light);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.9rem;
+  }
+  .site-footer p { margin: 0.4rem 0; }
+  .site-footer .tagline {
+    color: var(--teal);
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  .site-footer a {
+    color: var(--light-blue);
+    text-decoration: none;
+    margin: 0 0.6rem;
+  }
+  .site-footer a:hover { color: var(--teal); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 800px) {
+    .hero-inner, .content-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 { font-size: 2rem; }
+    .form-panel {
+      position: static;
+      margin-top: 2rem;
+    }
+    .cover-card { transform: rotate(0); margin-bottom: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="brand">THE AI FLUENCY COMPANY</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="founder.html">Founder</a>
+    <a href="ai-fluency-assessment.html">Assessment</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Executive Guide - Free Download</div>
+      <h1>The Executive's Guide to AI Fluency for Boards</h1>
+      <p class="subhead">A practical board-level guide to building shared AI understanding, judgement, and confidence.</p>
+      <p class="author">By Zoe Francois, Founder of The AI Fluency Company</p>
+    </div>
+    <div class="cover">
+      <div class="cover-card">
+        <div>
+          <div class="top-eyebrow">EXECUTIVE GUIDE</div>
+          <div class="cover-title">The Executive's Guide to AI Fluency for Boards</div>
+          <div class="cover-sub">A practical board-level guide to building shared AI understanding, judgement, and confidence.</div>
+        </div>
+        <div>
+          <div class="cover-bar"></div>
+          <div class="author-line">By Zoe Francois</div>
+          <div class="author-meta">Founder, The AI Fluency Company</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <div class="content-grid">
+    <div class="description">
+      <h2>The third guide in the executive AI series.</h2>
+
+      <p>Boards do not need to become technologists. They do need enough AI fluency to ask better questions, understand the limits of the tools, and make decisions with confidence rather than hype or fear.</p>
+
+      <p>This guide helps senior leaders build a practical shared language for AI. It frames fluency as a board capability: the ability to understand what AI can do, where human judgement still matters, what responsible use looks like, and how to connect AI adoption to strategy, governance, risk, and value.</p>
+
+      <p class="accent-line">AI fluency is not about knowing every tool. It is about knowing how to think clearly when the tools keep changing.</p>
+
+      <h2 style="margin-top: 2.5rem;">What's inside.</h2>
+
+      <ul>
+        <li><strong>Why AI fluency belongs in the boardroom</strong> — the leadership capability behind better AI decisions.</li>
+        <li><strong>The difference between awareness, literacy, and fluency</strong> — and why fluency is the standard executives should aim for.</li>
+        <li><strong>The questions directors should be asking</strong> — around value, accountability, risk, capability, and adoption.</li>
+        <li><strong>How fluency supports governance</strong> — connecting board judgement to responsible AI controls and ISO/IEC 42001 readiness.</li>
+        <li><strong>Practical next steps</strong> — how to build fluency across the leadership team without turning it into a technical training exercise.</li>
+      </ul>
+
+      <p>Best read alongside the governance and lifecycle guides. Together, the series gives boards a shared language for AI adoption, the governance frame to keep it responsible, and the lifecycle discipline to make it operational.</p>
+    </div>
+
+    <aside class="form-panel">
+      <div class="form-eyebrow">FREE DOWNLOAD</div>
+      <h3>Get your copy.</h3>
+      <p class="pitch">We'll email the download link to the address you provide.</p>
+
+      <form id="downloadForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" name="email" required>
+          <div class="help">We'll send the download link here.</div>
+        </div>
+        <div class="form-group">
+          <label for="organisation">Organisation</label>
+          <input type="text" id="organisation" name="organisation" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role / Title</label>
+          <input type="text" id="role" name="role" required>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Send me the guide</button>
+        <p class="privacy-note">We respect your inbox. We won't share your details. You can unsubscribe at any time.</p>
+      </form>
+
+      <div id="successMsg" class="status success">
+        <strong>Thanks.</strong> Check your inbox in the next few minutes - the download link is on its way. While you wait, you might find <a href="ai-fluency-assessment.html" style="color:#065f46;text-decoration:underline;">the AI Fluency Assessment</a> useful - a 5-minute maturity benchmark across four dimensions of AI fluency.
+      </div>
+      <div id="errorMsg" class="status error">
+        Something went wrong. Please try again, or email <strong>zoefrancois123@outlook.com</strong> directly and we'll send the guide.
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p class="tagline">Evaluate. Elevate. Empower.</p>
+  <p>The AI Fluency Company  -  Cape Town, South Africa</p>
+  <p style="margin-top:0.8rem;">
+    <a href="index.html">Home</a> -
+    <a href="ai-fluency-assessment.html">Assessment</a> -
+    <a href="founder.html">Founder</a>
+  </p>
+</footer>
+
+<script>
+  // ============================================================
+  // CONFIGURATION - Replace this URL after deploying the Apps Script
+  // ============================================================
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB14cDXA1a1CZlmS0-FyXgQJ3oIqvI83Vb7imDP1bYJWFS4vYPgqZRzEWw5OlhrBVv/exec';
+
+  const GUIDE_ID = 'fluency';  // identifies which guide this page is for
+
+  async function submitForm(event) {
+    event.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    const form = document.getElementById('downloadForm');
+
+    successMsg.classList.remove('show');
+    errorMsg.classList.remove('show');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const data = {
+      guide: GUIDE_ID,
+      guideName: 'AI Fluency for Boards Guide',
+      downloadUrl: new URL('assets/ai-fluency-for-boards-guide.pdf', window.location.href).href,
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      organisation: document.getElementById('organisation').value.trim(),
+      role: document.getElementById('role').value.trim(),
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+
+      const resultText = await response.text();
+      let result = {};
+      try {
+        result = resultText ? JSON.parse(resultText) : {};
+      } catch (parseError) {
+        throw new Error('The download service returned an unreadable response.');
+      }
+
+      if (!response.ok || result.ok === false || result.status === 'error') {
+        throw new Error(result.error || result.message || 'The download service could not save this request.');
+      }
+
+      successMsg.classList.add('show');
+      form.style.display = 'none';
+      btn.textContent = 'Sent';
+      
+    } catch (err) {
+      console.error('Submission error:', err);
+      errorMsg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Send me the guide';
+    }
+  }
+</script>
+
+</body>
+</html>
