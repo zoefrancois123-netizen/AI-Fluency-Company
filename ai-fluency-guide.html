@@ -426,6 +426,7 @@
       </div>
       <div id="errorMsg" class="status error">
         Something went wrong. Please try again, or email <strong>zoefrancois123@outlook.com</strong> directly and we'll send the guide.
+        <div id="errorDetail" style="margin-top:0.6rem;font-size:0.82rem;"></div>
       </div>
     </aside>
   </div>
@@ -445,7 +446,7 @@
   // ============================================================
   // CONFIGURATION - Replace this URL after deploying the Apps Script
   // ============================================================
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB14cDXA1a1CZlmS0-FyXgQJ3oIqvI83Vb7imDP1bYJWFS4vYPgqZRzEWw5OlhrBVv/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6oD8HPTfJINmtU-5WFBIbEQvtpnTYIEF8JCTf2UVL1W70jawdloeIH7lRpfDgcT1R/exec';
 
   const GUIDE_ID = 'fluency';  // identifies which guide this page is for
 
@@ -454,10 +455,12 @@
     const btn = document.getElementById('submitBtn');
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
+    const errorDetail = document.getElementById('errorDetail');
     const form = document.getElementById('downloadForm');
 
     successMsg.classList.remove('show');
     errorMsg.classList.remove('show');
+    if (errorDetail) errorDetail.textContent = '';
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
@@ -497,6 +500,7 @@
       
     } catch (err) {
       console.error('Submission error:', err);
+      if (errorDetail) errorDetail.textContent = err.message;
       errorMsg.classList.add('show');
       btn.disabled = false;
       btn.textContent = 'Send me the guide';
