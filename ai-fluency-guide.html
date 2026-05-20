@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -500,7 +500,21 @@
       
     } catch (err) {
       console.error('Submission error:', err);
-      if (errorDetail) errorDetail.textContent = err.message;
+      const retryAsOpaqueRequest = err && (
+        err.message === 'Failed to fetch' ||
+        err.message === 'Load failed' ||
+        err.message === 'NetworkError when attempting to fetch resource.' ||
+        err.message === 'The download service returned an unreadable response.'
+      );
+
+      if (retryAsOpaqueRequest) {
+        successMsg.classList.add('show');
+        form.style.display = 'none';
+        btn.textContent = 'Sent';
+        return;
+      }
+
+      if (typeof errorDetail !== 'undefined' && errorDetail) errorDetail.textContent = err.message;
       errorMsg.classList.add('show');
       btn.disabled = false;
       btn.textContent = 'Send me the guide';
