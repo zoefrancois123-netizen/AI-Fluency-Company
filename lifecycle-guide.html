@@ -476,18 +476,24 @@
     };
 
     try {
-      // Send data to Google Apps Script web app
-      // Note: Google Apps Script doesn't support CORS properly, so we use no-cors
-      // and assume success if the request goes through
-      await fetch(APPS_SCRIPT_URL, {
+      const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(data)
       });
-      
-      // Since we can't read the response with no-cors, we assume success
-      // The data will still be sent to the script
+
+      const resultText = await response.text();
+      let result = {};
+      try {
+        result = resultText ? JSON.parse(resultText) : {};
+      } catch (parseError) {
+        throw new Error('The download service returned an unreadable response.');
+      }
+
+      if (!response.ok || result.ok === false || result.status === 'error') {
+        throw new Error(result.error || result.message || 'The download service could not save this request.');
+      }
+
       successMsg.classList.add('show');
       form.style.display = 'none';
       btn.textContent = 'Sent';
