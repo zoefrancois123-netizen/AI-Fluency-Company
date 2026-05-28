@@ -349,6 +349,14 @@ h1 {
   max-width: 760px;
 }
 
+.section-heading.compact p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+  line-height: 1.55;
+}
+
 .section-heading h2 {
   margin: 0;
   color: var(--ink);
@@ -365,7 +373,7 @@ h1 {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
@@ -601,6 +609,67 @@ h1 {
   color: var(--blue);
   font-weight: 800;
   font-size: 0.92rem;
+}
+
+/* Service tag styling */
+.service-tag {
+  display: block;
+  margin: 0 0 14px;
+  padding: 0;
+  border: none;
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+/* Wide card for retainer */
+.work-card-wide {
+  grid-column: 1 / -1;
+}
+
+.work-card-wide p:not(.service-tag) {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+}
+
+/* Retainer service tags */
+.retainer-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.retainer-services span {
+  display: inline-block;
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--mist);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Service card list styling */
+.work-card ul {
+  margin: 0;
+  padding: 0 0 0 18px;
+  list-style: disc;
+}
+
+.work-card ul li {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.work-card ul li:last-child {
+  margin-bottom: 0;
 }
 
 .assessment {
