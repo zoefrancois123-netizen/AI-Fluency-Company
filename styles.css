@@ -591,6 +591,39 @@ h1 {
   background: rgba(255, 255, 255, 0.07);
 }
 
+/* Who We Help section */
+.who-we-help {
+  width: 100%;
+  padding: 92px max(20px, calc((100vw - 1180px) / 2));
+  background: var(--mist);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.audience-grid article {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.audience-grid h3 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+
+.audience-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
 .governance-grid h3 {
   margin: 0 0 12px;
   font-size: 1.35rem;
@@ -915,7 +948,8 @@ h1 {
   .assessment,
   .fluency-framework,
   .fluency-grid,
-  .fluency-outcomes {
+  .fluency-outcomes,
+  .audience-grid {
     grid-template-columns: 1fr;
   }
 
@@ -962,7 +996,8 @@ h1 {
   .band,
   .founder-principles,
   .governance,
-  .assessment {
+  .assessment,
+  .who-we-help {
     padding-right: 14px;
     padding-left: 14px;
   }
