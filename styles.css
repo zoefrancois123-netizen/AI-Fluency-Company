@@ -138,6 +138,7 @@ a {
 
 .founder-hero h1 {
   max-width: 840px;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
 }
 
 .founder-hero-copy p:not(.eyebrow) {
@@ -228,9 +229,9 @@ h1 {
   max-width: 780px;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(2.7rem, 6.2vw, 5.9rem);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
   font-weight: 760;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
@@ -362,8 +363,8 @@ h1 {
 .section-heading h2 {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(2rem, 4vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  line-height: 1.1;
   letter-spacing: 0;
 }
 
@@ -438,11 +439,13 @@ h1 {
 
 .founder-quote {
   margin: 28px 0 0;
-  padding: 30px;
+  padding: 30px 30px 50px;
   border-left: 5px solid var(--teal);
   border-radius: 10px;
   background: var(--ink);
   color: var(--white);
+  overflow: visible;
+  min-height: fit-content;
 }
 
 .founder-quote p {
@@ -1281,6 +1284,10 @@ h1 {
   .section {
     padding-top: 68px;
     padding-bottom: 68px;
+  }
+
+  .founder-quote {
+    padding: 20px 20px 40px;
   }
 
   .hero-actions,
