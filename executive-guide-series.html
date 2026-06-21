@@ -362,7 +362,7 @@
 
       <p>This series gives executive teams the complete picture. Each volume stands alone, but together they answer the three questions every board should be asking: what do we govern, how do we govern it, and who is capable of doing it.</p>
 
-      <p class="accent-line">Download all three. Read them in order. Use them as a set.</p>
+      <p class="accent-line">Start with Volume 1 instantly, or get all three by email. Read them in order. Use them as a set.</p>
 
       <h2 style="margin-top: 2.5rem;">The three volumes.</h2>
 
@@ -388,8 +388,21 @@
 
     <aside class="form-panel">
       <div class="form-eyebrow">FREE DOWNLOAD</div>
+      
+      <!-- Option 1: Instant download -->
+      <div id="instant-download">
+        <h3>Start with Volume 1.</h3>
+        <p class="pitch">Download the AI Governance guide instantly — no form required.</p>
+        <a href="assets/ai-governance-guide.pdf" download class="submit-btn" style="display:inline-block;text-align:center;text-decoration:none;">Download Volume 1</a>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--slate-light);">PDF, ~25 pages, 1 MB</p>
+      </div>
+
+      <hr style="margin:2rem 0;border:0;border-top:1px solid var(--slate-lighter);">
+
+      <!-- Option 2: Get all three via email -->
+      <div class="form-eyebrow">OR GET THE FULL SERIES</div>
       <h3>Get all three guides.</h3>
-      <p class="pitch">We'll email the download links to the address you provide.</p>
+      <p class="pitch">Want the complete set? We'll email all three download links to you.</p>
 
       <form id="downloadForm" onsubmit="submitForm(event)">
         <div class="form-group">
@@ -456,16 +469,15 @@
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
+    const baseUrl = 'https://theaifluencyco.com/';
     const data = {
       guide: GUIDE_ID,
       guideName: 'The Executive Guide Series (All 3 Volumes)',
       downloadUrl: [
-        new URL('assets/ai-governance-guide.pdf', window.location.href).href,
-        new URL('assets/ai-product-lifecycle-guide.pdf', window.location.href).href,
-        new URL('assets/ai-fluency-for-boards-guide.pdf', window.location.href).href
+        baseUrl + 'assets/ai-governance-guide.pdf',
+        baseUrl + 'assets/ai-product-lifecycle-guide.pdf',
+        baseUrl + 'assets/ai-fluency-for-boards-guide.pdf'
       ].join('\n'),
-      // Note: For executive-guide-series, the GUIDE_URLS fallback in Apps Script
-      // should point to a combined PDF or the first volume. The form sends all 3 URLs.
       name: document.getElementById('name').value.trim(),
       email: document.getElementById('email').value.trim(),
       organisation: document.getElementById('organisation').value.trim(),
