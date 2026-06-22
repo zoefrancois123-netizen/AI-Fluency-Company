@@ -594,10 +594,6 @@ h1 {
   width: 100%;
 }
 
-.series-cta {
-  justify-self: start;
-}
-
 .series-image {
   text-align: center;
 }
@@ -616,11 +612,6 @@ h1 {
 .series-grid .work-card h4 {
   margin: 0 0 10px;
   font-size: 1.15rem;
-}
-
-.series-cta {
-  margin-top: 24px;
-  justify-self: start;
 }
 
 @media (max-width: 920px) {
