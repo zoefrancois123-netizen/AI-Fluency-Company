@@ -567,16 +567,31 @@ h1 {
 }
 
 .series-grid .work-card img.playbook-thumb {
-  max-width: 160px;
+  max-width: 280px;
+  width: 100%;
   margin: 0 auto 16px;
 }
 
 .series-cta-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 24px;
-  margin-top: 24px;
-  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.series-cta-row .series-cta {
+  align-self: center;
+}
+
+.series-cta-row .series-image {
+  max-width: 420px;
+  width: 100%;
+}
+
+.series-cta-row .series-image img.playbook-thumb {
+  max-width: 100%;
+  width: 100%;
 }
 
 .series-cta {
@@ -588,7 +603,7 @@ h1 {
 }
 
 .series-image img.playbook-thumb {
-  max-width: 200px;
+  max-width: 340px;
   margin: 0 auto;
 }
 
@@ -1246,6 +1261,18 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .series-image img.playbook-thumb {
+    max-width: 300px;
+  }
+
+  .series-grid .work-card img.playbook-thumb {
+    max-width: 240px;
+  }
+
+  .series-cta-row .series-image {
+    max-width: 380px;
+  }
 }
 
 @media (max-width: 620px) {
@@ -1305,5 +1332,17 @@ h1 {
 
   .pillar-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .series-image img.playbook-thumb {
+    max-width: 260px;
+  }
+
+  .series-grid .work-card img.playbook-thumb {
+    max-width: 200px;
+  }
+
+  .series-cta-row .series-image {
+    max-width: 320px;
   }
 }
