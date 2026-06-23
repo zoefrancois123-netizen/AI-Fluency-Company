@@ -27,67 +27,67 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             color: #333;
-            line-height: 1.6;
+            line-height: 1.5;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
 
-        /* Header */
+        /* Compact Header */
         .header {
             text-align: center;
-            padding: 30px 0;
+            padding: 18px 15px;
             background: white;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
 
         .logo {
-            max-width: 300px;
+            max-width: 220px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .header h1 {
             color: #0A1933;
-            font-size: 2.2em;
-            margin-bottom: 10px;
+            font-size: 1.6em;
+            margin-bottom: 6px;
         }
 
         .header p {
             color: #666;
-            font-size: 1.1em;
-            max-width: 600px;
+            font-size: 0.95em;
+            max-width: 550px;
             margin: 0 auto;
         }
 
         .tagline {
             color: #00B2B2;
             font-weight: 600;
-            font-size: 1.2em;
-            margin-top: 10px;
+            font-size: 0.9em;
+            margin-top: 6px;
             letter-spacing: 2px;
         }
 
         /* Progress Bar */
         .progress-container {
             background: white;
-            padding: 20px;
+            padding: 12px 15px;
             border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
 
         .progress-bar {
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: #e0e0e0;
-            border-radius: 4px;
+            border-radius: 3px;
             overflow: hidden;
         }
 
@@ -100,43 +100,43 @@
 
         .progress-text {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 6px;
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         /* Form Sections */
         .form-section {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
             display: none;
         }
 
         .form-section.active {
             display: block;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.4s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
             color: #0A1933;
-            font-size: 1.4em;
-            margin-bottom: 5px;
+            font-size: 1.2em;
+            margin-bottom: 4px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .section-icon {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: linear-gradient(135deg, #00B2B2, #0A1933);
             border-radius: 50%;
             display: flex;
@@ -144,45 +144,48 @@
             justify-content: center;
             color: white;
             font-weight: bold;
+            font-size: 0.9em;
         }
 
         .section-subtitle {
             color: #666;
-            margin-bottom: 20px;
-            margin-left: 50px;
+            margin-bottom: 15px;
+            margin-left: 40px;
+            font-size: 0.9em;
         }
 
-        /* Questions */
+        /* Questions - Compact */
         .question {
-            margin-bottom: 25px;
-            padding: 20px;
+            margin-bottom: 14px;
+            padding: 12px 14px;
             background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #00B2B2;
+            border-radius: 8px;
+            border-left: 3px solid #00B2B2;
         }
 
         .question-text {
             font-weight: 600;
             color: #0A1933;
-            margin-bottom: 15px;
-            font-size: 1.05em;
+            margin-bottom: 8px;
+            font-size: 0.95em;
         }
 
         .options {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
         }
 
         .option {
             display: flex;
             align-items: center;
-            padding: 12px 15px;
+            padding: 7px 10px;
             background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-size: 0.9em;
         }
 
         .option:hover {
@@ -191,10 +194,11 @@
         }
 
         .option input[type="radio"] {
-            margin-right: 12px;
-            width: 20px;
-            height: 20px;
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
             accent-color: #00B2B2;
+            flex-shrink: 0;
         }
 
         .option.selected {
@@ -210,36 +214,38 @@
         .option label {
             cursor: pointer;
             flex: 1;
+            line-height: 1.4;
         }
 
         /* Email Section */
         .email-section {
             background: linear-gradient(135deg, #0A1933, #1a3a5c);
             color: white;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 30px 25px;
+            border-radius: 12px;
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .email-section h2 {
-            font-size: 1.8em;
             margin-bottom: 15px;
         }
 
+        .email-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
         .email-section p {
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             opacity: 0.9;
+            font-size: 0.95em;
         }
 
         .email-input {
             width: 100%;
-            max-width: 400px;
-            padding: 15px 20px;
+            max-width: 380px;
+            padding: 12px 16px;
             border: none;
             border-radius: 8px;
-            font-size: 1em;
-            margin-bottom: 15px;
+            font-size: 0.95em;
+            margin-bottom: 10px;
         }
 
         .email-input:focus {
@@ -248,18 +254,19 @@
 
         .field-label {
             display: block;
-            max-width: 400px;
-            margin: 0 auto 8px;
+            max-width: 380px;
+            margin: 0 auto 6px;
             text-align: left;
             font-weight: 600;
+            font-size: 0.9em;
         }
 
         .field-error {
-            min-height: 22px;
-            margin: 4px auto 14px;
-            max-width: 400px;
+            min-height: 18px;
+            margin: 2px auto 10px;
+            max-width: 380px;
             color: #ffd6d6;
-            font-size: 0.92em;
+            font-size: 0.85em;
             text-align: left;
         }
 
@@ -269,19 +276,20 @@
 
         .consent-row {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: flex-start;
             justify-content: center;
-            max-width: 520px;
-            margin: 15px auto 0;
-            font-size: 0.92em;
+            max-width: 480px;
+            margin: 12px auto 0;
+            font-size: 0.85em;
             opacity: 0.9;
             text-align: left;
         }
 
         .consent-row input {
-            margin-top: 4px;
+            margin-top: 3px;
             accent-color: #00B2B2;
+            flex-shrink: 0;
         }
 
         .consent-row.invalid {
@@ -298,12 +306,12 @@
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 12px 32px;
             background: linear-gradient(135deg, #00B2B2, #008f8f);
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -343,18 +351,18 @@
         .button-group {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 15px;
             border-top: 1px solid #e0e0e0;
         }
 
         /* Results Section */
         .results-section {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
             display: none;
         }
 
@@ -364,11 +372,11 @@
         }
 
         .score-circle {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: conic-gradient(#00B2B2 var(--score-deg), #e0e0e0 var(--score-deg));
-            margin: 30px auto;
+            margin: 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -377,8 +385,8 @@
 
         .score-circle::before {
             content: '';
-            width: 160px;
-            height: 160px;
+            width: 130px;
+            height: 130px;
             background: white;
             border-radius: 50%;
             position: absolute;
@@ -387,98 +395,102 @@
         .score-text {
             position: relative;
             z-index: 1;
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
             color: #0A1933;
         }
 
         .score-label {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #666;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
         .category-badge {
             display: inline-block;
-            padding: 10px 30px;
+            padding: 8px 24px;
             background: linear-gradient(135deg, #00B2B2, #0A1933);
             color: white;
             border-radius: 25px;
-            font-size: 1.3em;
+            font-size: 1.1em;
             font-weight: bold;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .dimension-scores {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
             text-align: left;
         }
 
         .dimension-card {
             background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #00B2B2;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #00B2B2;
         }
 
         .dimension-name {
             font-weight: 600;
             color: #0A1933;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            font-size: 0.85em;
         }
 
         .dimension-bar {
-            height: 8px;
+            height: 6px;
             background: #e0e0e0;
-            border-radius: 4px;
+            border-radius: 3px;
             overflow: hidden;
         }
 
         .dimension-fill {
             height: 100%;
             background: linear-gradient(90deg, #00B2B2, #0A1933);
-            border-radius: 4px;
+            border-radius: 3px;
             transition: width 1s ease;
         }
 
         .dimension-score {
             text-align: right;
-            font-size: 0.9em;
+            font-size: 0.8em;
             color: #666;
-            margin-top: 5px;
+            margin-top: 3px;
         }
 
         .recommendation {
             background: linear-gradient(135deg, #e6f7f7, #f0fafa);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
+            padding: 18px;
+            border-radius: 8px;
+            margin: 18px 0;
             text-align: left;
         }
 
         .recommendation h3 {
             color: #0A1933;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 1em;
         }
 
         .recommendation p {
             color: #555;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
         }
 
         .cta-box {
             background: linear-gradient(135deg, #0A1933, #1a3a5c);
             color: white;
-            padding: 30px;
+            padding: 22px;
             border-radius: 10px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .cta-box h3 {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
         }
 
         .cta-box a {
@@ -497,19 +509,83 @@
             background: linear-gradient(135deg, #00c7c7, #007f7f);
         }
 
+        /* Recommended Service Card */
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-card-body {
+            padding: 18px;
+        }
+
+        .service-card-body h3 {
+            color: #0A1933;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .service-card-body p {
+            color: #555;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .service-card-body .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Retainer Banner */
+        .retainer-banner {
+            background: linear-gradient(135deg, #00B2B2, #0A1933);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 18px 0;
+            text-align: left;
+        }
+
+        .retainer-banner h4 {
+            margin-bottom: 6px;
+            font-size: 1em;
+        }
+
+        .retainer-banner p {
+            opacity: 0.9;
+            font-size: 0.88em;
+            margin-bottom: 10px;
+        }
+
+        .retainer-banner a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
         /* Data Storage Info */
         .data-info {
             background: #f0fafa;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
-            margin-top: 20px;
-            font-size: 0.9em;
+            margin-top: 15px;
+            font-size: 0.85em;
             color: #555;
         }
 
         .submission-status {
             display: block;
-            margin-top: 6px;
+            margin-top: 4px;
             font-weight: 600;
         }
 
@@ -528,9 +604,9 @@
         /* Footer */
         .footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .footer a {
@@ -540,21 +616,65 @@
 
         /* Responsive */
         @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 14px 10px;
+            }
+
             .header h1 {
-                font-size: 1.6em;
+                font-size: 1.3em;
             }
-            
+
             .logo {
-                max-width: 200px;
+                max-width: 180px;
             }
-            
+
+            .form-section {
+                padding: 14px;
+            }
+
+            .question {
+                padding: 10px 12px;
+            }
+
+            .option {
+                padding: 6px 8px;
+                font-size: 0.85em;
+            }
+
             .button-group {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
             }
-            
+
             .btn {
                 width: 100%;
+                padding: 12px 20px;
+            }
+
+            .email-section {
+                padding: 22px 15px;
+            }
+
+            .results-section {
+                padding: 20px 15px;
+            }
+
+            .score-circle {
+                width: 130px;
+                height: 130px;
+            }
+
+            .score-circle::before {
+                width: 105px;
+                height: 105px;
+            }
+
+            .score-text {
+                font-size: 2em;
             }
         }
 
@@ -579,7 +699,7 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <div class="progress-text">Question <span id="currentQuestion">1</span> of 10</div>
+            <div class="progress-text">Page <span id="currentPage">1</span> of 2</div>
         </div>
 
         <!-- Email Capture Section -->
@@ -600,17 +720,17 @@
             </div>
         </div>
 
-        <!-- Question Sections -->
-        <!-- Dimension 1: AI Awareness -->
+        <!-- Page 1: Questions 1-5 -->
         <div class="form-section" id="section1">
             <div class="section-title">
                 <div class="section-icon">1</div>
-                <span>AI Awareness</span>
+                <span>Part 1 of 2</span>
             </div>
-            <div class="section-subtitle">Understanding of what AI can and cannot do</div>
+            <div class="section-subtitle">AI Awareness, Tool Usage &amp; Strategy</div>
 
+            <!-- Q1: AI Awareness -->
             <div class="question">
-                <div class="question-text">1. Which of the following best describes your organisation's understanding of AI capabilities?</div>
+                <div class="question-text">1. Which best describes your organisation's understanding of AI capabilities?</div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q1', 0)">
                         <input type="radio" name="q1" value="0" id="q1a">
@@ -618,23 +738,24 @@
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1', 5)">
                         <input type="radio" name="q1" value="5" id="q1b">
-                        <label for="q1b">We have a basic understanding but haven't explored deeply</label>
+                        <label for="q1b">Basic understanding but haven't explored deeply</label>
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1', 10)">
                         <input type="radio" name="q1" value="10" id="q1c">
-                        <label for="q1c">We understand AI capabilities and have identified potential use cases</label>
+                        <label for="q1c">We understand AI and have identified potential use cases</label>
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1', 15)">
                         <input type="radio" name="q1" value="15" id="q1d">
-                        <label for="q1d">We have a clear understanding and regularly evaluate new AI developments</label>
+                        <label for="q1d">Clear understanding, regularly evaluate new AI developments</label>
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1', 20)">
                         <input type="radio" name="q1" value="20" id="q1e">
-                        <label for="q1e">We are considered thought leaders in AI within our industry</label>
+                        <label for="q1e">We are thought leaders in AI within our industry</label>
                     </div>
                 </div>
             </div>
 
+            <!-- Q2: AI Awareness -->
             <div class="question">
                 <div class="question-text">2. How would you rate your leadership team's AI literacy?</div>
                 <div class="options">
@@ -661,20 +782,7 @@
                 </div>
             </div>
 
-            <div class="button-group">
-                <div></div>
-                <button class="btn" onclick="nextSection(2)">Next &rarr;</button>
-            </div>
-        </div>
-
-        <!-- Dimension 2: Tool Usage -->
-        <div class="form-section" id="section2">
-            <div class="section-title">
-                <div class="section-icon">2</div>
-                <span>Tool Usage</span>
-            </div>
-            <div class="section-subtitle">Actual hands-on experience with AI tools</div>
-
+            <!-- Q3: Tool Usage -->
             <div class="question">
                 <div class="question-text">3. Which AI tools is your organisation currently using?</div>
                 <div class="options">
@@ -688,7 +796,7 @@
                     </div>
                     <div class="option" onclick="selectOption(this, 'q3', 10)">
                         <input type="radio" name="q3" value="10" id="q3c">
-                        <label for="q3c">AI tools integrated into specific workflows (e.g., marketing, sales)</label>
+                        <label for="q3c">AI tools integrated into specific workflows (marketing, sales, etc.)</label>
                     </div>
                     <div class="option" onclick="selectOption(this, 'q3', 15)">
                         <input type="radio" name="q3" value="15" id="q3d">
@@ -701,6 +809,7 @@
                 </div>
             </div>
 
+            <!-- Q4: Tool Usage -->
             <div class="question">
                 <div class="question-text">4. How embedded is AI in your daily operations?</div>
                 <div class="options">
@@ -727,20 +836,7 @@
                 </div>
             </div>
 
-            <div class="button-group">
-                <button class="btn btn-secondary" onclick="prevSection(1)">&larr; Previous</button>
-                <button class="btn" onclick="nextSection(3)">Next &rarr;</button>
-            </div>
-        </div>
-
-        <!-- Dimension 3: Strategy -->
-        <div class="form-section" id="section3">
-            <div class="section-title">
-                <div class="section-icon">3</div>
-                <span>Strategy</span>
-            </div>
-            <div class="section-subtitle">Documented AI strategy or roadmap</div>
-
+            <!-- Q5: Strategy -->
             <div class="question">
                 <div class="question-text">5. Does your organisation have a documented AI strategy?</div>
                 <div class="options">
@@ -767,6 +863,21 @@
                 </div>
             </div>
 
+            <div class="button-group">
+                <div></div>
+                <button class="btn" onclick="nextSection(2)">Next Page &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Page 2: Questions 6-10 -->
+        <div class="form-section" id="section2">
+            <div class="section-title">
+                <div class="section-icon">2</div>
+                <span>Part 2 of 2</span>
+            </div>
+            <div class="section-subtitle">Strategy, Governance &amp; Data Readiness</div>
+
+            <!-- Q6: Strategy -->
             <div class="question">
                 <div class="question-text">6. How aligned is your executive team on AI priorities?</div>
                 <div class="options">
@@ -793,20 +904,7 @@
                 </div>
             </div>
 
-            <div class="button-group">
-                <button class="btn btn-secondary" onclick="prevSection(2)">&larr; Previous</button>
-                <button class="btn" onclick="nextSection(4)">Next &rarr;</button>
-            </div>
-        </div>
-
-        <!-- Dimension 4: Governance -->
-        <div class="form-section" id="section4">
-            <div class="section-title">
-                <div class="section-icon">4</div>
-                <span>Governance</span>
-            </div>
-            <div class="section-subtitle">AI policies and risk frameworks</div>
-
+            <!-- Q7: Governance -->
             <div class="question">
                 <div class="question-text">7. Does your organisation have AI governance policies in place?</div>
                 <div class="options">
@@ -833,6 +931,7 @@
                 </div>
             </div>
 
+            <!-- Q8: Governance -->
             <div class="question">
                 <div class="question-text">8. How does your organisation manage AI-related risks?</div>
                 <div class="options">
@@ -859,20 +958,7 @@
                 </div>
             </div>
 
-            <div class="button-group">
-                <button class="btn btn-secondary" onclick="prevSection(3)">&larr; Previous</button>
-                <button class="btn" onclick="nextSection(5)">Next &rarr;</button>
-            </div>
-        </div>
-
-        <!-- Dimension 5: Data Readiness -->
-        <div class="form-section" id="section5">
-            <div class="section-title">
-                <div class="section-icon">5</div>
-                <span>Data Readiness</span>
-            </div>
-            <div class="section-subtitle">Data quality and accessibility</div>
-
+            <!-- Q9: Data Readiness -->
             <div class="question">
                 <div class="question-text">9. How would you rate your organisation's data quality and accessibility?</div>
                 <div class="options">
@@ -899,6 +985,7 @@
                 </div>
             </div>
 
+            <!-- Q10: Data Readiness -->
             <div class="question">
                 <div class="question-text">10. Does your organisation understand what data is needed for AI initiatives?</div>
                 <div class="options">
@@ -926,7 +1013,7 @@
             </div>
 
             <div class="button-group">
-                <button class="btn btn-secondary" onclick="prevSection(4)">&larr; Previous</button>
+                <button class="btn btn-secondary" onclick="prevSection(1)">&larr; Previous</button>
                 <button class="btn" id="resultsButton" onclick="showResults()">Get My Results &rarr;</button>
             </div>
         </div>
@@ -951,10 +1038,18 @@
                 <!-- Filled by JavaScript -->
             </div>
             
+            <div id="recommendedService"></div>
+
+            <div class="retainer-banner">
+                <h4>🔄 Need Ongoing Support?</h4>
+                <p>Our <strong>AI Fluency Retainer</strong> gives you continuous access to strategic guidance, governance reviews, and use case prioritisation — month by month, as your maturity grows.</p>
+                <a href="mailto:zoe@theaifluencyco.com?subject=AI%20Fluency%20Retainer%20Enquiry">Ask about the retainer →</a>
+            </div>
+
             <div class="cta-box">
-                <h3>Ready to Improve Your AI Fluency?</h3>
-                <p>Book a free debrief with Zoe Francois to discuss your results and next steps.</p>
-                <a href="https://calendly.com/zoefrancois123/30min" class="btn" style="margin-top: 15px; display: inline-block;">Book Your Free Debrief</a>
+                <h3>Questions or Want to Talk It Through?</h3>
+                <p>Reach out and we'll help you figure out the best next step for your organisation. No obligation, no pitch — just clarity.</p>
+                <a href="contact.html" class="btn" style="margin-top: 15px; display: inline-block;">Contact Us</a>
             </div>
             
             <div class="data-info" id="submissionInfo" style="margin-top: 20px;">
@@ -967,7 +1062,7 @@
         <!-- Footer -->
         <div class="footer">
             <p>&copy; 2026 The AI Fluency Company. All rights reserved.</p>
-            <p>AI Strategy & Governance | ISO 42001 Consulting</p>
+            <p>AI Strategy &amp; Governance | ISO 42001 Consulting</p>
             <p style="margin-top: 10px;">
                 <a href="#">LinkedIn</a> | 
                 <a href="#">Website</a> | 
@@ -994,7 +1089,7 @@
             'Data Readiness': ['q9', 'q10']
         };
 
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwW4DoTb4bosi14MEwJIxElvmpA5q7lRXdk9nNYg8JerX9Rzd56CgiOKLhkrOX9bvOT-Q/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzo0DpWdKzK7wCg00C2rOc5CQf4KQOb5CrBrgjtaLHKX-D4IMajIVIu6Z26r6M-7DOgQ/exec';
         const RESULT_STORAGE_KEY = 'aiFluencyResults';
         const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -1156,9 +1251,9 @@
 
         // Update progress bar
         function updateProgress(sectionNum) {
-            const progress = ((sectionNum - 1) / 5) * 100;
+            const progress = ((sectionNum - 1) / 2) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('currentQuestion').textContent = ((sectionNum - 1) * 2) + 1;
+            document.getElementById('currentPage').textContent = sectionNum;
         }
 
         // Show results
@@ -1241,16 +1336,62 @@
             
             document.getElementById('dimensionScores').innerHTML = dimensionScoresHtml;
             
+            // Service mapping
+            const serviceMap = {
+                'AI Novice': {
+                    name: 'Executive AI Fluency Briefing',
+                    image: 'assets/Offer 1.png',
+                    cta: 'Book the Fluency Briefing',
+                    calendly: 'https://calendly.com/zoefrancois123/30min'
+                },
+                'AI Aware': {
+                    name: 'Executive AI Fluency Briefing',
+                    image: 'assets/Offer 1.png',
+                    cta: 'Book the Fluency Briefing',
+                    calendly: 'https://calendly.com/zoefrancois123/30min'
+                },
+                'AI Emerging': {
+                    name: 'AI Strategy Workshop',
+                    image: 'assets/Offer 3.png',
+                    cta: 'Book the Strategy Workshop',
+                    calendly: 'https://calendly.com/zoefrancois123/30min'
+                },
+                'AI Advancing': {
+                    name: 'AI Governance Readiness Diagnostic',
+                    image: 'assets/Offer 2.png',
+                    cta: 'Book the Governance Diagnostic',
+                    calendly: 'https://calendly.com/zoefrancois123/30min'
+                },
+                'AI Fluent': {
+                    name: 'Hyperautomation Sprint',
+                    image: 'assets/Offer 4.png',
+                    cta: 'Book the Hyperautomation Sprint',
+                    calendly: 'https://calendly.com/zoefrancois123/30min'
+                }
+            };
+
+            const service = serviceMap[category];
+
             // Set recommendation
-document.getElementById('recommendation').innerHTML = `
-  <h3>What Your Score Means</h3>
-  <p>${recommendation}</p>
-  <h3>Recommended Next Step</h3>
-  <p><strong>${nextStep}</strong></p>
-  <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #666; font-size: 0.95em;">
-    <strong style="color: #0A1933;">Not ready to engage yet?</strong> Book a 30-minute conversation with Zoë to walk through your result. No obligation, no pitch — just a useful debrief.
-  </p>
-`;
+            document.getElementById('recommendation').innerHTML = `
+              <h3>What Your Score Means</h3>
+              <p>${recommendation}</p>
+              <h3>Recommended Next Step</h3>
+              <p><strong>${nextStep}</strong></p>
+            `;
+
+            // Render recommended service card
+            document.getElementById('recommendedService').innerHTML = `
+              <h3 style="color: #0A1933; margin-bottom: 10px;">Recommended For You</h3>
+              <div class="service-card">
+                <img src="${service.image}" alt="${service.name}" onerror="this.style.display='none'">
+                <div class="service-card-body">
+                  <h3>${service.name}</h3>
+                  <p>${nextStep}</p>
+                  <a href="${service.calendly}" class="btn">${service.cta}</a>
+                </div>
+              </div>
+            `;
             
             // Save results
             setSubmissionStatus('Saving your results and sending email notifications...', 'pending');
